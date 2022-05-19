@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GateWay | Simple Proxy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+h1 {
+  text-align: center;
+  font-family: 'Alfa Slab One', cursive;
+}
+</style>
+</head>
+<body>
+
+  <div class="container">
+  
+    <div class="main">
+
+      <div>
+  <style>
+ div {
+   position: fixed;
+   top: 34%;
+   left: 38%;
+ }</style>
+<style> 
+input[type=text] {
+  width: 50%;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+</style>
+ </div>
+  <style>
+body {
+  background-color: rgb(8,146,208);
+}
+    </style>
+<style> 
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: black;
+  border-radius: 25px;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+  
+          <h1>GateWay</h1>
+      
+      <div id="error"></div>
+
+      <form action="no-js" method="get" id="proxy-form">
+        <p>
+          <b>URL:</b>
+          <input type="text" id="url" name="url" autofocus="autofocus" />
+          <input type="submit" value="Go" />
+        </p>
+
+      </form>
+
+      <p>v0.1</p>
+      
+<div id="google-ad">
+
+	<script>
+		function $(id){
+			return document.getElementById(id);
+		}
+		
+		$('proxy-form').onsubmit = function(){
+			var url = $('url').value;
+			if(url.substr(0,4) != "http"){
+				url = "https://" + url;
+			}
+			window.location.href='https://gateway.oasis0test.repl.co/thegate/' + url;
+			return false;
+		};
+		
+		function checkError(){
+			var search = window.location.search;
+			var start = search.indexOf('error=');
+			if(start > -1){
+				var stop = search.indexOf('&', start);
+				if(stop == -1){ stop = undefined; }
+				// +6 for "error="
+				var err = search.substr(start+6, stop);
+                var $error = $('error');
+				$error.innerText = $error.textContent = decodeURIComponent(err);
+				$error.style.display = "block";
+			}
+		}
+    
+		window.onload = function() { 
+			$('url').focus(); 
+			checkError(); 
+		}
+	</script>
+  
+  
+</body>
+</html>
