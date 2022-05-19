@@ -1,4 +1,4 @@
-# gatway
+# gateway
 Simple web Proxy
 
 # Test Link
